@@ -21,7 +21,8 @@ def img_to_ascii():
         if  apiKey == correctApiKey:
             response = {
                 "Error": "Invalid key",
-                "Provided key": apiKey
+                "Provided key": apiKey,
+                "Correct key": correctApiKey
             }
             return flask.jsonify(response)
 
