@@ -1,6 +1,4 @@
 import io
-import base64
-from PIL import Image
 import flask
 import imgToAscii as img
 from key import keys
