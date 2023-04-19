@@ -11,6 +11,13 @@ app = flask.Flask(__name__)
 def home():
     return flask.render_template('index.html')
 
+@app.route("/test")
+def test():
+    return flask.jsonify({
+        "test": True,
+        "output": "Hello World"
+    })
+
 @app.route('/img-to-ascii', methods=['POST'])
 def img_to_ascii():
     try:
