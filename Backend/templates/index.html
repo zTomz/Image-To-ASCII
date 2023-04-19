@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/icon.ico" type="image/ico">
+
+    <title>Image to ASCII Api</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+		.left {
+			float: left;
+			width: 40%;
+            height: 100vh;
+			background-color: lightblue;
+		}
+		.right {
+			float: left;
+			width: 60%;
+            height: 100vh;
+			background-color: lightgray;
+            background-image: url('img/ascii.png'); 
+            background-size: cover;
+		}
+		.clear {
+			clear: both;
+		}
+
+        .content-left {
+            padding: 32px;
+        }
+        
+        .program-box {
+            width: 100%;
+            padding: 10px;
+            background-color: #D7E9FE;
+            border-radius: 10px;
+        }
+	</style>
+</head>
+<body>
+    <div class="left">
+		<div class="content-left">
+            <h1>Image To ASCII</h1>
+		    <p>Our ASCII Image API allows you to convert an image into ASCII characters and share the generated ASCII image together with the image path and an API key via our API interface. To do this, use a POST request with the image path and API key as parameters. The result is an ASCII character array that you can use in your code.</p>
+            <br>
+            <br>
+            <p>Visit api/img-to-ascii, and enter your api key + add an image path</p>
+            <br>
+            <div class="program-box">
+                curl -X POST -F "image=@path/to/your/image.png" -F "apikey=[your api key]"
+            </div>
+        </div>
+	</div>
+	<div class="right"></div>
+	<div class="clear"></div>
+</body>
+</html>
