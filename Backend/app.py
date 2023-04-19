@@ -1,7 +1,7 @@
 import io
+import os
 import flask
 import imgToAscii as img
-from key import keys
 
 app = flask.Flask(__name__)
 
@@ -9,23 +9,19 @@ app = flask.Flask(__name__)
 def home():
     return flask.render_template('index.html')
 
-@app.route("/test")
-def test():
-    return flask.jsonify({
-        "test": True,
-        "output": "Hello World"
-    })
-
-@app.route('/img-to-ascii', methods=['POST'])
+@app.route('/api/img-to-ascii', methods=['POST'])
 def img_to_ascii():
     try:
         # Get the image data and key from the request arguments
         img_data = flask.request.files['image'].read()
         apiKey = flask.request.form['apiKey']
 
-        if not apiKey in keys:
+        correctApiKey = os.getenv("apiKey")
+
+        if  apiKey == correctApiKey:
             response = {
-                "Error": "Invalid key"
+                "Error": "Invalid key",
+                "Provided key": apiKey
             }
             return flask.jsonify(response)
 
